@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@300;400;700&display=swap');
+
+/******variables*******/
+$primary: #7c57b4;
+$secondary: #f1c50e;
+$lightGray: #fdf9f6;
+$white: #fff;
+$bodyFont: 'Lato',
+sans-serif;
+$headings: 'Anton',
+sans-serif;
+$fontSize: 16px;
+$transition: .4s ease;
+$padding: 70px 0;
+
+/******mixins*******/
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    flex-wrap: wrap;
+}
+
+/******basic styles*******/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $bodyFont;
+    font-size: $fontSize;
+    line-height: 1.7;
+    background: $lightGray;
+    color: darken($primary, 20%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: $primary;
+}
+
+h2 {
+   font-size: 2rem; 
+   &::after {
+       display: block;
+       content: "";
+       width: 50px;
+       height: 3px;
+       background: $primary;
+       margin: 10px 0;
+   }
+}
+a {
+    text-decoration: none;
+    color: $white;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+        color: $secondary;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+/******nav*******/
+nav {
+    background: $primary;
+    .container {
+        @include flex(space-between, center, row);
+        .logo {
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        ul {
+            @include flex(space-between, center, row);
+            padding: 20px 0;
+            li {
+                color: $white;
+                margin-left: 30px;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: $transition;
+                &:hover {
+                    color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+/******headerHome*******/
+.headerHome {
+    background-image: url(../img/header.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 80vh;   
+}
+
+/******intro*******/
+.intro {
+    background: $primary;
+    width: 50%;
+    padding: 20px 30px;
+    line-height: 1.2;
+    margin: auto;
+    margin-top: -100px;
+    text-align: center;
+    h1 {
+        color: $secondary;
+        font-family: $headings;
+        font-size: 8rem;
+        text-shadow: 3px 3px darken($primary, 20%);
+        margin-top: -110px;
+    }
+    h3 {
+        color: $lightGray;
+        font-size: 2.5rem;
+    }
+    p {
+        color: $lightGray;
+        font-style: italic;
+        margin-top: 20px;
+        font-size: 1.2rem;
+    }
+}
+
+/******services*******/
+.services {
+    margin: 50px auto;
+    article:last-child {
+        @include flex(space-between, flex-start, row);
+        height: 50vh;
+        div {
+            flex: 0 0 30%;
+            margin: 30px 0;
+            padding: 20px;
+        }
+        div:nth-child(1) {
+            background: $primary;
+            color: $white;
+            h4 {
+                color: $white;
+            }
+        }
+        div:nth-child(2) {
+            background: $secondary;
+            align-self: center;
+            a {
+                color: $primary;
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+        div:nth-child(3) {
+            align-self: flex-end;
+            a {
+                color: $primary;
+                &:hover {
+                    color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+/******footer*******/
+footer {
+    background: $primary;
+    color: $white;
+    padding: 30px;
+   .container {
+    @include flex(space-between, flex-start,row);
+    h3 {
+        color: $white;
+    }
+    article:nth-child(1) {
+        flex: 0 0 50%;
+    }
+    article:nth-child(2) {
+        flex: 0 0 20%;
+        i {
+            margin-right: 10px;
+            color: $secondary;
+        }
+    }
+    article:nth-child(3) {
+        flex: 0 0 20%;
+        i {
+            margin-left: 10px;
+            color: $secondary;
+            font-size: 1.5rem;
+        }
+    }
+   }
+}
+
+/******header*******/
+.header {
+    color: $primary;
+    background: $secondary;
+    text-align: center;
+    padding: 20px;
+}
+
+/******team*******/
+.team {
+    @include flex(space-between,center,row);
+    padding: $padding;
+    article {
+        flex: 0 0 48%;
+    }
+    article:first-child {
+        button {
+            text-transform: uppercase;
+            color: $white;
+            background: $primary;
+            border: none;
+            padding: 15px 30px;
+            margin-top: 30px;
+            transition: $transition;
+            cursor: pointer;
+            &:hover {
+                color: $secondary;
+            }
+        }
+    }
+    article:last-child {
+        @include flex(space-between,center,row);   
+        div {
+            flex: 0 0 45%;   
+        }
+        img {
+            width:  100%;
+            border-radius: 50%;
+            transition: $transition;
+            cursor: pointer;
+            &:hover {
+                background: $lightGray;
+                opacity: .5;
+            }
+        }
+    }
+}
+
+/******project*******/
+.project {
+    @include flex(space-between,center,row);
+    padding: $padding;
+    article {
+        flex: 0 0 48%;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/******carousel*******/
+.carousel {
+    background: $secondary;
+}
+

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+$fontFamily: 'Roboto', sans-serif;
+$black: #081624;
+$darkBlue: #0c062e;
+$pink: #501755;
+$violet: #2d1854;
+$accents: #b41aab;
+$lightGray: #9190a5;
+$white: #fff;
+$fontSize: 16px;
+$transition: .3s ease;
+$padding: 80px 0;
+/*****************
+basic styles
+*****************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    line-height: 1.7;
+    color: $white;
+}
